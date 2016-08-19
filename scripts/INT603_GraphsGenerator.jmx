@@ -38,7 +38,7 @@
           <stringProp name="endOffset"></stringProp>
           <stringProp name="excludeLabels"></stringProp>
           <boolProp name="excludeSamplesWithRegex">false</boolProp>
-          <intProp name="exportMode">2</intProp>
+          <intProp name="exportMode">0</intProp>
           <stringProp name="filePrefix">NEWTEST</stringProp>
           <stringProp name="forceY"></stringProp>
           <stringProp name="granulation">60000</stringProp>
@@ -49,7 +49,7 @@
           <stringProp name="limitRows">150</stringProp>
           <stringProp name="lineWeight"></stringProp>
           <stringProp name="lowCountLimit">1</stringProp>
-          <stringProp name="outputBaseFolder">${__P(WINDIR,D:\\Session\\Files\\INT603)}</stringProp>
+          <stringProp name="outputBaseFolder">${__P(WINDIR,D:\\Session\\Files\\INT603\test603)}</stringProp>
           <boolProp name="paintGradient">true</boolProp>
           <boolProp name="paintZeroing">true</boolProp>
           <boolProp name="preventOutliers">false</boolProp>
