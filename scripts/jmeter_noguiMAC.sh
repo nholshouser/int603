@@ -8,6 +8,7 @@
 
 #MAC
 USER=`whoami`
+DATE=$(/bin/date +%Y%m%d_%H%M)
 TESTSCRIPT=/Users/${USER}/GIT/int603/scripts/INT603_XITESTMAC.jmx
 GRAPHSCRIPT=/Users/${USER}/GIT/int603/scripts/INT603_GraphsGenerator.jmx
 DIROUTPUT=/Users/${USER}/GIT/int603/csv/${DATE}_${SCENARIO}
@@ -18,7 +19,6 @@ PERFRESULTS=${DIROUTPUT}/PERFMON.csv
 echo -e "Input test scenario name followed by [ENTER]:"
 read SCENARIO
 echo "SCENARIO=${SCENARIO}"
-DATE=$(/bin/date +%Y%m%d_%H%M)
 PREFIX=${SCENARIO}-
 
 echo -e "Input IP Address of Server to test"
