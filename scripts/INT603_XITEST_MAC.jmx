@@ -85,7 +85,7 @@
         <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
           <collectionProp name="AuthManager.auth_list">
             <elementProp name="" elementType="Authorization">
-              <stringProp name="Authorization.url">http://${SERVER}:50000/</stringProp>
+              <stringProp name="Authorization.url">http://${server}:50000/</stringProp>
               <stringProp name="Authorization.username">b2bdemo</stringProp>
               <stringProp name="Authorization.password">Abcd1234</stringProp>
               <stringProp name="Authorization.domain"></stringProp>
@@ -393,7 +393,7 @@
               <idleTime>true</idleTime>
             </value>
           </objProp>
-          <stringProp name="filename">c:\software\GIT\csv\PERFMON_EXTERNAL_Z.csv</stringProp>
+          <stringProp name="filename">${__P(PERFRESULTS)}</stringProp>
           <longProp name="interval_grouping">1000</longProp>
           <boolProp name="graph_aggregated">false</boolProp>
           <stringProp name="include_sample_labels"></stringProp>

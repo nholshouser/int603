@@ -47,8 +47,16 @@ jmeter30/apache-jmeter-3.0/bin/jmeter -t ${TESTSCRIPT} -n -l ${TESTRESULTS} -JDI
 
 
 # Generate the JMETER graphs
-echo "Generate Graphs: jmeter30/apache-jmeter-3.0/bin/jmeter -t ${GRAPHSCRIPT} -n -l output.csv -JTESTRESULTS=${TESTRESULTS} -JDIROUTPUT=${DIROUTPUT} -JFILEPREFIX=${PREFIX}"
-jmeter30/apache-jmeter-3.0/bin/jmeter -t ${GRAPHSCRIPT} -n -l output.csv -JTESTRESULTS=${TESTRESULTS} -JDIROUTPUT=${DIROUTPUT} -JFILEPREFIX=${FILEPREFIX}
+#echo "Generate Graphs: jmeter30/apache-jmeter-3.0/bin/jmeter -t ${GRAPHSCRIPT} -n -l output.csv -JTESTRESULTS=${TESTRESULTS} -JDIROUTPUT=${DIROUTPUT} -JFILEPREFIX=${PREFIX}"
+#jmeter30/apache-jmeter-3.0/bin/jmeter -t ${GRAPHSCRIPT} -n -l output.csv -JTESTRESULTS=${TESTRESULTS} -JDIROUTPUT=${DIROUTPUT} -JFILEPREFIX=${FILEPREFIX}
+
+# Generate Specific Graphs
+GRAPHS=(ResponseTimesOverTime TransactionsPerSecond BytesThroughputOverTime ResponseTimesDistribution ResponseTimesPercentiles)
+for i in "${GRAPHS[@]}"
+do
+echo "Generate ${i} graph: java -jar jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png ${DIROUTPUT}/${i}.png --input-jtl ${PERFRESULTS}  --plugin-type ${i} --width 800 --height 600 --auto-scale yes --relative-times no "
+java -jar jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png ${DIROUTPUT}/${i}.png --input-jtl ${PERFRESULTS}  --plugin-type ${i} --width 800 --height 600 --auto-scale yes --relative-times no
+done
 
 # Generate PERFMON Graphs
 echo "Generate Perf Graphs: java -jar jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png CPU.png --input-jtl ${PERFRESULTS}}  --plugin-type PerfMon --width 800 --height 600 --auto-scale yes --relative-times no --include-labels \".*CPU.*\" --include-label-regex true"
