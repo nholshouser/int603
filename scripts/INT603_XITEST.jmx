@@ -385,7 +385,7 @@
               <idleTime>true</idleTime>
             </value>
           </objProp>
-          <stringProp name="filename">${__P(WINDIR, D:\\\\Files\\Session\\INT603\\test603\\csv\\)}\PERFMON.csv</stringProp>
+          <stringProp name="filename">${__P(PERFRESULTS)}</stringProp>
           <longProp name="interval_grouping">1000</longProp>
           <boolProp name="graph_aggregated">false</boolProp>
           <stringProp name="include_sample_labels"></stringProp>

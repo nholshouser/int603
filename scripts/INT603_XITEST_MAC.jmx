@@ -85,7 +85,7 @@
         <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
           <collectionProp name="AuthManager.auth_list">
             <elementProp name="" elementType="Authorization">
-              <stringProp name="Authorization.url">http://${__P(TESTIP)}:50000/</stringProp>
+              <stringProp name="Authorization.url">http://${SERVER}:50000/</stringProp>
               <stringProp name="Authorization.username">b2bdemo</stringProp>
               <stringProp name="Authorization.password">Abcd1234</stringProp>
               <stringProp name="Authorization.domain"></stringProp>
