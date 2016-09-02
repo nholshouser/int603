@@ -21,10 +21,16 @@ echo "SCENARIO=${SCENARIO}"
 DATE=$(/bin/date +%Y%m%d_%H%M)
 PREFIX=${SCENARIO}-
 
+echo -e "Input IP Address of Server to test"
+read TESTIP
+echo "Server IP: ${TESTIP}"
+
+# Export variables
 export DIROUTPUT
 export DIROUTPUT
 export TESTRESULTS
 export PREFIX
+export TESTIP
 
 # Make Directory
 
@@ -33,8 +39,8 @@ echo "Creating directory ${DIROUTPUT}"
 mkdir ${DIROUTPUT}
 
 # Run the test
-echo "Running command: jmeter30/apache-jmeter.3.0/bin/jmeter -t ${TESTSCRIPT} -n -l ${TESTRESULTS} -JDIROUTPUT=${DIROUTPUT} -JSCENARIO=${SCENARIO}"
-jmeter30/apache-jmeter-3.0/bin/jmeter -t ${TESTSCRIPT} -n -l ${TESTRESULTS} -JDIROUTPUT=${DIROUTPUT} -JSCENARIO=${SCENARIO}
+echo "Running command: jmeter30/apache-jmeter.3.0/bin/jmeter -t ${TESTSCRIPT} -n -l ${TESTRESULTS} -JDIROUTPUT=${DIROUTPUT} -JSCENARIO=${SCENARIO} -JTESTIP=${TESTIP} -JPREFIX=${PREFIX}"
+jmeter30/apache-jmeter-3.0/bin/jmeter -t ${TESTSCRIPT} -n -l ${TESTRESULTS} -JDIROUTPUT=${DIROUTPUT} -JSCENARIO=${SCENARIO} -JTESTIP=${TESTIP} -JPREFIX=${PREFIX}
 
 
 # Generate the JMETER graphs
@@ -42,7 +48,7 @@ echo "Generate Graphs: jmeter30/apache-jmeter-3.0/bin/jmeter -t ${GRAPHSCRIPT} -
 jmeter30/apache-jmeter-3.0/bin/jmeter -t ${GRAPHSCRIPT} -n -l output.csv -JTESTRESULTS=${TESTRESULTS} -JDIROUTPUT=${DIROUTPUT} -JFILEPREFIX=${PREFIX}
 
 # Generate PERFMON Graphs
-echo "Generate Perf Graphs: java -jar jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png CPU.png --input-jtl PERFMON.csv  --plugin-type PerfMon --width 640 --height 480 --auto-scale yes --relative-times no --include-labels \".*CPU.*\" --include-label-regex true"
-java -jar jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png ${DIROUTPUT}/CPU.png --input-jtl ${DIROUTPUT}/PERFMON.csv  --plugin-type PerfMon --width 640 --height 480 --auto-scale yes --relative-times no --include-labels ".*CPU.*" --include-label-regex true
-echo "Generate Perf Graphs: java -jar jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png Memory.png --input-jtl PERFMON.csv  --plugin-type PerfMon --width 640 --height 480 --auto-scale yes --relative-times no --include-labels \".*Memory.*\" --include-label-regex true"
-java -jar jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png ${DIROUTPUT}/Memory.png --input-jtl ${DIROUTPUT}/PERFMON.csv  --plugin-type PerfMon --width 640 --height 480 --auto-scale yes --relative-times no --include-labels ".*Memory.*" --include-label-regex true
+echo "Generate Perf Graphs: java -jar jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png CPU.png --input-jtl PERFMON.csv  --plugin-type PerfMon --width 800 --height 600 --auto-scale yes --relative-times no --include-labels \".*CPU.*\" --include-label-regex true"
+java -jar jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png ${DIROUTPUT}/CPU.png --input-jtl ${PERFRESULTS}  --plugin-type PerfMon --width 800 --height 600 --auto-scale yes --relative-times no --include-labels ".*CPU.*" --include-label-regex true
+echo "Generate Perf Graphs: java -jar jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png Memory.png --input-jtl PERFMON.csv  --plugin-type PerfMon --width 800 --height 600 --auto-scale yes --relative-times no --include-labels \".*Memory.*\" --include-label-regex true"
+java -jar jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png ${DIROUTPUT}/Memory.png --input-jtl ${PERFRESULTS}  --plugin-type PerfMon --width 800 --height 600 --auto-scale yes --relative-times no --include-labels ".*Memory.*" --include-label-regex true
