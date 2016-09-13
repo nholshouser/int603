@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.9" jmeter="3.0 r1743807">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="INT603_SYNC_PI_TEST" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">30</stringProp>
+        <longProp name="ThreadGroup.start_time">1392234924000</longProp>
+        <longProp name="ThreadGroup.end_time">1392234924000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
+          <collectionProp name="AuthManager.auth_list">
+            <elementProp name="" elementType="Authorization">
+              <stringProp name="Authorization.url">http://${server}:50000/</stringProp>
+              <stringProp name="Authorization.username">b2bdemo</stringProp>
+              <stringProp name="Authorization.password">Abcd1234</stringProp>
+              <stringProp name="Authorization.domain"></stringProp>
+              <stringProp name="Authorization.realm"></stringProp>
+            </elementProp>
+          </collectionProp>
+        </AuthManager>
+        <hashTree/>
+        <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="false">
+          <collectionProp name="CookieManager.cookies"/>
+          <boolProp name="CookieManager.clearEachIteration">false</boolProp>
+        </CookieManager>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="responsetime" elementType="Argument">
+              <stringProp name="Argument.name">responsetime</stringProp>
+              <stringProp name="Argument.value">1000</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">Service Response Time (ms)</stringProp>
+            </elementProp>
+            <elementProp name="strsize" elementType="Argument">
+              <stringProp name="Argument.name">strsize</stringProp>
+              <stringProp name="Argument.value">1000</stringProp>
+              <stringProp name="Argument.desc">size of variable string (bytes)</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="server" elementType="Argument">
+              <stringProp name="Argument.name">server</stringProp>
+              <stringProp name="Argument.value">SERVER_IP</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">server name/IP</stringProp>
+            </elementProp>
+            <elementProp name="loops" elementType="Argument">
+              <stringProp name="Argument.name">loops</stringProp>
+              <stringProp name="Argument.value">10</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+              <stringProp name="Argument.desc">number of loops for Loop Controller</stringProp>
+            </elementProp>
+            <elementProp name="port" elementType="Argument">
+              <stringProp name="Argument.name">port</stringProp>
+              <stringProp name="Argument.value">50000</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="perfport" elementType="Argument">
+              <stringProp name="Argument.name">perfport</stringProp>
+              <stringProp name="Argument.value">4444</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="testname" elementType="Argument">
+              <stringProp name="Argument.name">testname</stringProp>
+              <stringProp name="Argument.value">check_input</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="WSDL" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">${server}</stringProp>
+          <stringProp name="HTTPSampler.port">${port}</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/dir/wsdl?p=ic/1a0afe674a8138b5967139617fb11b43 </stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <boolProp name="HTTPSampler.monitor">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree/>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller 10KB" enabled="true">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">${loops}</stringProp>
+        </LoopController>
+        <hashTree>
+          <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="SimpleTextSync" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="SoapSampler.URL_DATA">http://${server}:${port}/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=INT603&amp;receiverParty=&amp;receiverService=&amp;interface=SimpleTextSyncSvcWSOUT&amp;interfaceNamespace=http%3A%2F%2Fbpmperformance.sap.com</stringProp>
+            <stringProp name="HTTPSamper.xml_data">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+ &lt;SOAP-ENV:Body&gt;
+    &lt;yq1:SimpleTextRequestMT xmlns:yq1=&quot;http://bpmperformance.sap.com&quot;&gt;
+&lt;text01&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text01&gt;
+&lt;text02&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text02&gt;
+&lt;text03&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text03&gt;
+&lt;text04&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text04&gt;
+&lt;text05&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text05&gt;
+&lt;text06&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text06&gt;
+&lt;text07&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text07&gt;
+&lt;text08&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text08&gt;
+&lt;text09&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text09&gt;
+&lt;text10&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text10&gt;
+&lt;correlationID&gt;NA&lt;/correlationID&gt;
+&lt;count&gt;0&lt;/count&gt;
+&lt;responseMS&gt;${responsetime}&lt;/responseMS&gt;
+&lt;/yq1:SimpleTextRequestMT&gt;&lt;/SOAP-ENV:Body&gt;&lt;/SOAP-ENV:Envelope&gt;</stringProp>
+            <stringProp name="SoapSampler.xml_data_file"></stringProp>
+            <stringProp name="SoapSampler.SOAP_ACTION">http://sap.com/xi/WebService/soap1.1/</stringProp>
+            <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          </SoapSampler>
+          <hashTree/>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller 100KB" enabled="false">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">${loops}</stringProp>
+        </LoopController>
+        <hashTree>
+          <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="SimpleTextSync" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="SoapSampler.URL_DATA">http://${server}:${port}/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=INT603&amp;receiverParty=&amp;receiverService=&amp;interface=SimpleTextSyncSvcWSOUT&amp;interfaceNamespace=http%3A%2F%2Fbpmperformance.sap.com</stringProp>
+            <stringProp name="HTTPSamper.xml_data">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+ &lt;SOAP-ENV:Body&gt;
+    &lt;yq1:SimpleTextRequestMT xmlns:yq1=&quot;http://bpmperformance.sap.com&quot;&gt;
+&lt;text01&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text01&gt;
+&lt;text02&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text02&gt;
+&lt;text03&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text03&gt;
+&lt;text04&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text04&gt;
+&lt;text05&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text05&gt;
+&lt;text06&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text06&gt;
+&lt;text07&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text07&gt;
+&lt;text08&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text08&gt;
+&lt;text09&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text09&gt;
+&lt;text10&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text10&gt;
+&lt;correlationID&gt;NA&lt;/correlationID&gt;
+&lt;count&gt;0&lt;/count&gt;
+&lt;responseMS&gt;${responsetime}&lt;/responseMS&gt;
+&lt;/yq1:SimpleTextRequestMT&gt;&lt;/SOAP-ENV:Body&gt;&lt;/SOAP-ENV:Envelope&gt;</stringProp>
+            <stringProp name="SoapSampler.xml_data_file"></stringProp>
+            <stringProp name="SoapSampler.SOAP_ACTION">http://sap.com/xi/WebService/soap1.1/</stringProp>
+            <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          </SoapSampler>
+          <hashTree/>
+        </hashTree>
+        <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller 200KB" enabled="false">
+          <boolProp name="LoopController.continue_forever">true</boolProp>
+          <stringProp name="LoopController.loops">${loops}</stringProp>
+        </LoopController>
+        <hashTree>
+          <SoapSampler guiclass="SoapSamplerGui" testclass="SoapSampler" testname="SimpleTextSync" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="SoapSampler.URL_DATA">http://${server}:${port}/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=INT603&amp;receiverParty=&amp;receiverService=&amp;interface=SimpleTextSyncSvcWSOUT&amp;interfaceNamespace=http%3A%2F%2Fbpmperformance.sap.com</stringProp>
+            <stringProp name="HTTPSamper.xml_data">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;SOAP-ENV:Envelope xmlns:SOAP-ENV=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+ &lt;SOAP-ENV:Body&gt;
+    &lt;yq1:SimpleTextRequestMT xmlns:yq1=&quot;http://bpmperformance.sap.com&quot;&gt;
+&lt;text01&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text01&gt;
+&lt;text02&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text02&gt;
+&lt;text03&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text03&gt;
+&lt;text04&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text04&gt;
+&lt;text05&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text05&gt;
+&lt;text06&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text06&gt;
+&lt;text07&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text07&gt;
+&lt;text08&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text08&gt;
+&lt;text09&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text09&gt;
+&lt;text10&gt;${__RandomString(${strsize},abcdefghijklmnopqrstuvwxyz0123456789)}&lt;/text10&gt;
+&lt;correlationID&gt;NA&lt;/correlationID&gt;
+&lt;count&gt;0&lt;/count&gt;
+&lt;responseMS&gt;${responsetime}&lt;/responseMS&gt;
+&lt;/yq1:SimpleTextRequestMT&gt;&lt;/SOAP-ENV:Body&gt;&lt;/SOAP-ENV:Envelope&gt;</stringProp>
+            <stringProp name="SoapSampler.xml_data_file"></stringProp>
+            <stringProp name="SoapSampler.SOAP_ACTION">http://sap.com/xi/WebService/soap1.1/</stringProp>
+            <stringProp name="SoapSampler.SEND_SOAP_ACTION">true</stringProp>
+            <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+          </SoapSampler>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+          <boolProp name="ResultCollector.error_logging">true</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Report Success" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>false</message>
+              <threadName>true</threadName>
+              <dataType>false</dataType>
+              <encoding>false</encoding>
+              <assertions>false</assertions>
+              <subresults>false</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Report Error" enabled="false">
+          <boolProp name="ResultCollector.error_logging">true</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="false">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="1 sec Random Timer" enabled="true">
+          <stringProp name="ConstantTimer.delay">5000</stringProp>
+          <stringProp name="RandomTimer.range">200</stringProp>
+        </GaussianRandomTimer>
+        <hashTree/>
+        <kg.apc.jmeter.perfmon.PerfMonCollector guiclass="kg.apc.jmeter.vizualizers.PerfMonGui" testclass="kg.apc.jmeter.perfmon.PerfMonCollector" testname="jp@gc - PerfMon Metrics Collector" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">${__P(PERFRESULTS)}</stringProp>
+          <longProp name="interval_grouping">1000</longProp>
+          <boolProp name="graph_aggregated">false</boolProp>
+          <stringProp name="include_sample_labels"></stringProp>
+          <stringProp name="exclude_sample_labels"></stringProp>
+          <stringProp name="start_offset"></stringProp>
+          <stringProp name="end_offset"></stringProp>
+          <boolProp name="include_checkbox_state">false</boolProp>
+          <boolProp name="exclude_checkbox_state">false</boolProp>
+          <collectionProp name="metricConnections">
+            <collectionProp name="1192747126">
+              <stringProp name="957605091">${server}</stringProp>
+              <stringProp name="1814883292">${perfport}</stringProp>
+              <stringProp name="66952">CPU</stringProp>
+              <stringProp name="0"></stringProp>
+            </collectionProp>
+            <collectionProp name="-1107967195">
+              <stringProp name="957605091">${server}</stringProp>
+              <stringProp name="1814883292">${perfport}</stringProp>
+              <stringProp name="-1993889503">Memory</stringProp>
+              <stringProp name="0"></stringProp>
+            </collectionProp>
+            <collectionProp name="781042056">
+              <stringProp name="957605091">${server}</stringProp>
+              <stringProp name="1814883292">${perfport}</stringProp>
+              <stringProp name="2112896831">Disks I/O</stringProp>
+              <stringProp name="0"></stringProp>
+            </collectionProp>
+            <collectionProp name="-995627179">
+              <stringProp name="957605091">${server}</stringProp>
+              <stringProp name="1814883292">${perfport}</stringProp>
+              <stringProp name="-274342153">Network I/O</stringProp>
+              <stringProp name="0"></stringProp>
+            </collectionProp>
+            <collectionProp name="-448433904">
+              <stringProp name="957605091">${server}</stringProp>
+              <stringProp name="1814883292">${perfport}</stringProp>
+              <stringProp name="2590131">Swap</stringProp>
+              <stringProp name="0"></stringProp>
+            </collectionProp>
+          </collectionProp>
+        </kg.apc.jmeter.perfmon.PerfMonCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

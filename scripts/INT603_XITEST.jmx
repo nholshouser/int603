@@ -17,7 +17,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">20</stringProp>
+        <stringProp name="ThreadGroup.num_threads">10</stringProp>
         <stringProp name="ThreadGroup.ramp_time">60</stringProp>
         <longProp name="ThreadGroup.start_time">1392234924000</longProp>
         <longProp name="ThreadGroup.end_time">1392234924000</longProp>
@@ -29,7 +29,7 @@
         <AuthManager guiclass="AuthPanel" testclass="AuthManager" testname="HTTP Authorization Manager" enabled="true">
           <collectionProp name="AuthManager.auth_list">
             <elementProp name="" elementType="Authorization">
-              <stringProp name="Authorization.url">http://10.79.5.139:50000/</stringProp>
+              <stringProp name="Authorization.url">http://${server}:50000/</stringProp>
               <stringProp name="Authorization.username">b2bdemo</stringProp>
               <stringProp name="Authorization.password">Abcd1234</stringProp>
               <stringProp name="Authorization.domain"></stringProp>
@@ -59,7 +59,7 @@
             </elementProp>
             <elementProp name="server" elementType="Argument">
               <stringProp name="Argument.name">server</stringProp>
-              <stringProp name="Argument.value">10.79.5.139</stringProp>
+              <stringProp name="Argument.value">SERVER_IP</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">server name/IP</stringProp>
             </elementProp>
