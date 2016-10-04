@@ -65,7 +65,7 @@
             </elementProp>
             <elementProp name="loops" elementType="Argument">
               <stringProp name="Argument.name">loops</stringProp>
-              <stringProp name="Argument.value">200</stringProp>
+              <stringProp name="Argument.value">100</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
               <stringProp name="Argument.desc">number of loops for Loop Controller</stringProp>
             </elementProp>
