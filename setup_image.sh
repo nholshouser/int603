@@ -32,10 +32,7 @@ sed -i s/SERVER_IP/${SERVER_IP}/g /d/Files/Session/INT603/test603/scripts/INT603
 echo "running: sed -i s/SERVER_IP/${SERVER_IP}/g /d/Files/Session/INT603/test603/scripts/INT603_ConnectionTest.jmx"
 sed -i s/SERVER_IP/${SERVER_IP}/g /d/Files/Session/INT603/test603/scripts/INT603_ConnectionTest.jmx
 echo "running: sed -i s/SERVER_IP/${SERVER_IP}/g /d/Files/Session/INT603/test603/scripts/INT603_XITEST_WarmUp.jmx"
-sed -i s/SERVER_IP/${SERVER_IP}/g /d/Files/Session/INT603/test603/scripts/INT603_XITEST_WarmUp.jmx
-
-exit
-
+sed -i s/SERVER_IP/${SERVER_IP}/g /d/Files/Session/INT603/test603/scripts/INT603_XITEST_WarmUp.jmx
 echo "###################################################"
 echo "Unzipping JMeter"
 unzip jmeter30.zip
