@@ -60,11 +60,7 @@ echo "Running command: /D/Files/Session/INT603/test603/jmeter30/apache-jmeter.3.
 # Generate Specific Graphs
 GRAPHS=(ResponseTimesOverTime TransactionsPerSecond BytesThroughputOverTime ResponseTimesDistribution ResponseTimesPercentiles)
 for i in "${GRAPHS[@]}"
-do
-echo "Generate ${i} graph: java -jar jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png ${DIROUTPUT}/${i}.png --input-jtl ${TESTRESULTS}  --plugin-type ${i} --width 800 --height 600 --auto-scale yes --relative-times no "
-/d/software/java/sapjvm_7/bin/java -jar ../jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png ${DIROUTPUT}/${i}.png --input-jtl ${TESTRESULTS}  --plugin-type ${i} --width 800 --height 600 --auto-scale yes --relative-times no
-done
-
+doecho "Generate ${i} graph: java -jar jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png ${DIROUTPUT}/${i}.png --input-jtl ${TESTRESULTS}  --plugin-type ${i} --width 800 --height 600 --auto-scale yes --relative-times no "java -jar ../jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png ${DIROUTPUT}/${i}.png --input-jtl ${TESTRESULTS}  --plugin-type ${i} --width 800 --height 600 --auto-scale yes --relative-times nodone
 
 # Generate PERFMON Graphs
 echo "Generate Perf Graphs: java -jar /D/Files/Session/INT603/test603/jmeter30/apache-jmeter-3.0/lib/cmdrunner-2.0.jar --tool Reporter --generate-png CPU.png --input-jtl PERFMON.csv  --plugin-type PerfMon --width 640 --height 480 --auto-scale yes --relative-times no --include-labels \".*CPU.*\" --include-label-regex true"
